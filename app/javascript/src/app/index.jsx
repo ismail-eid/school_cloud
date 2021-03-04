@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from './layout';
+import App from './app';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Layout />,
+    <App />,
     document.body.appendChild(document.createElement('div'))
   )
 })

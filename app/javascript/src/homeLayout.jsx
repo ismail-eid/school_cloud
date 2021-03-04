@@ -31,9 +31,9 @@ const Layout = (props) => {
 
       {props.children}
 
-      <footer className="p-3 bg-light">
+      <footer className="p-3">
         <div>
-          <p className="mr-3 mb-0 text-secondary">Dugsi Cloud</p>
+          <p className="mr-3 mb-0 text-secondary">Dugsi Cloud <small>© Copyright 2021 Alif Cloud. All Rights Reserved.</small> - <small>Developed by <a href="">Ismail Eid</a></small> </p>
         </div>
       </footer>
     </React.Fragment>
