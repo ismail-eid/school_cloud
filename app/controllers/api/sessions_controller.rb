@@ -37,7 +37,7 @@ module Api
       session = Session.find_by(token: token)
 
       if session and session.destroy
-        rener json: {
+        render json: {
           success: true
         } 
       end  

@@ -1,0 +1,27 @@
+#special-student {
+  .photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+  }
+
+  .profile {
+      width: 96%;
+      height: 200px;
+      background: black;
+      color: white;
+      text-align: center;
+      line-height: 200px;
+      letter-spacing: 5px;
+      font-size: 50px;
+      border-radius: 50%;
+  }
+
+  @media (max-width: 768px) {
+    .profile {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}

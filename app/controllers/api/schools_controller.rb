@@ -3,7 +3,7 @@ module Api
     def create 
       user = User.find_by(email: params[:school][:user_email])
       if user 
-        @school = user.schools.new(name: params[:school][:name], tell: params[:school][:address], address: params[:school][:address])
+        @school = user.schools.new(name: params[:school][:name], tell: params[:school][:tell], address: params[:school][:address])
 
         if @school.save 
           render 'api/schools/create'

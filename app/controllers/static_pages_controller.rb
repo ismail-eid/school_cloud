@@ -3,9 +3,14 @@ class StaticPagesController < ApplicationController
   def App 
     
     token = cookies.signed[:dugsi_session_token]
+    session = Session.find_by(token: token)
+
     if session 
-      @school = Session.find_by(token: token).user.schools.first.name
+      @school = session.user.schools.first.name
       render 'App'
+    else 
+      @school = 'Dugsi Cloud'
+      render 'App'  
     end  
   end  
 

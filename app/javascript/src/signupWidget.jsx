@@ -36,7 +36,6 @@ class SignupWidget extends React.Component {
         }
       })
     })).then(handleErrors).then(data => {
-      console.log('api users', data)
       this.makeSchool(data.user.email)
     })
   }
@@ -57,7 +56,6 @@ class SignupWidget extends React.Component {
         }
       })
     })).then(handleErrors).then(data => {
-      console.log('api schools', data)
       this.makeSession(this.state.email, this.state.password)
     })
   }
@@ -73,7 +71,6 @@ class SignupWidget extends React.Component {
         }
       })
     })).then(handleErrors).then(data => {
-      console.log('api sessions', data)
       if  (data.success === true) {
         window.location = '/app'
       }
