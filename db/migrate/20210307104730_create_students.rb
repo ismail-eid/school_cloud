@@ -8,7 +8,6 @@ class CreateStudents < ActiveRecord::Migration[6.0]
       t.string :address
 
       t.belongs_to :glass, index: true, foreign_key: true
-      t.belongs_to :parent, index: true, foreign_key: true
 
       t.timestamps
     end
