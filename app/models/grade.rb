@@ -10,4 +10,15 @@ class Grade < ApplicationRecord
   validates :year, presence: true
   
   validates :student_grade, presence: true, length: { maximum: 3 }
+
+  after_validation :exam_unique
+
+  def exam_unique
+    @exam = Grade.where(student_id: self.student_id, year_id: self.year_id, type_id: self.type_id).first
+
+    if @exam
+      @exam.destroy
+    end  
+  end  
+
 end  

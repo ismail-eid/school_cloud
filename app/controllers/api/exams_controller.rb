@@ -18,7 +18,7 @@ module Api
       if @exam.save 
         render 'api/exams/create'
       else
-        render json: { success: false }, status: :not_found
+        render json: { success: false }, status: :bad_request
       end  
     end  
 

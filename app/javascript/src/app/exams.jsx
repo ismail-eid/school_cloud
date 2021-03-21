@@ -9,7 +9,7 @@ class ExamWidget extends React.Component {
     students_exams: [],
     add_exam: false,
     glass: '',
-    year: '1',
+    year: '5',
     type: '1',
     subject: '1',
     student: '',
@@ -79,10 +79,6 @@ class ExamWidget extends React.Component {
      }, 2000)
    } 
 
-   componentWillMount () {
-
-   }
-
   submitHandler = (event) => {
     event.preventDefault()
     const { student, year, type, grade, subject } = this.state;
@@ -131,7 +127,7 @@ class ExamWidget extends React.Component {
             </div>
           </div>
         </div>  
-        <div className="row">
+        <div className="row m-0">
           <div className="col-12 text-right">
             <select className="form-control" name="glass" value={glass} onChange={this.changeHandler} style={{width: 'initial', display: 'inline-block'}}>
               {classes.map(glass => {
@@ -156,24 +152,24 @@ class ExamWidget extends React.Component {
           </div>
         </div>
         <div className="row m-0">
-          <div className="col-12 p-0">
+          <div className="col-12 p-0 wrap" style={{height: 'calc(100vh - 200px)'}}>
             <table className="table table-bordered" style={{fontSize: "13px"}}>
-              <thead>
-                <tr>
-                  <th>id</th>
-                  <th>Full Name</th>
-                  <th>Math</th>
-                  <th>Biology</th>
-                  <th>Physics</th>
-                  <th>Chemistry</th>
-                  <th>Geography</th>
-                  <th>History</th>
-                  <th>Arabic</th>
-                  <th>English</th>
-                  <th>Somali</th>
-                  <th>Islamic Study</th>
-                </tr>
-              </thead>
+            <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Full Name</th>
+                    <th>Math</th>
+                    <th>Biology</th>
+                    <th>Physics</th>
+                    <th>Chemistry</th>
+                    <th>Geography</th>
+                    <th>History</th>
+                    <th>Arabic</th>
+                    <th>English</th>
+                    <th>Somali</th>
+                    <th>Islamic Study</th>
+                  </tr>
+                </thead>
               <tbody>
                 {students_exams.map(student_exam => (
                     <tr key={student_exam.id}>

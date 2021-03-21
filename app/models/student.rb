@@ -4,6 +4,7 @@ class Student < ApplicationRecord
 
   has_many :grades
   has_many :paids
+  has_many :attendances
 
   has_one_attached :photo
 
@@ -19,13 +20,11 @@ class Student < ApplicationRecord
   validates :glass, presence: true
   validates :parent, presence: true
 
-  before_validation :class_unique
+  after_validation :class_unique
 
   def class_unique
     full_name = Glass.find(glass_id).students.find_by(full_name: self.full_name)
     student_id = Glass.find(glass_id).students.find_by(student_id: self.student_id)
-
-  puts full_name || student_id && self.id == nil
 
     if (full_name || student_id) && self.id == nil
       raise ArgumentError.new("Name and Student Id must be unique")

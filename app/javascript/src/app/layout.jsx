@@ -118,7 +118,7 @@ class Layout extends React.Component {
                 <Link onClick={() => this.makeActive('attendance')} className={`nav-link ${this.state.pages.attendance && 'active'}`} to="/app/attendances"><i className="fas fa-calendar-check d-inline-block mr-3"></i> Attendance</Link>
               </li>
               <li>
-                <Link onClick={() => this.makeActive('student')} className={`nav-link ${this.state.pages.attendance && 'active'}`} to="/app/student"><i className="fas fa-user-edit d-inline-block mr-3"></i> Student</Link>
+                <Link onClick={() => this.makeActive('student')} className={`nav-link ${this.state.pages.student && 'active'}`} to="/app/student"><i className="fas fa-user-edit d-inline-block mr-3"></i> Student</Link>
               </li>
               <li>
                 <a onClick={() => this.makeActive('parents')} className={`nav-link ${this.state.pages.parents && 'active'}`} href="#"><i className="fas fa-users d-inline-block mr-3"></i> Parents</a>

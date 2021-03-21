@@ -34,6 +34,11 @@ Rails.application.routes.draw do
     get '/exams'                               => 'exams#index'
     post '/exams'                              => 'exams#create'
 
+    # ATTENDANCE
+    get '/attendances'                         => 'attendances#index'
+    post '/attendances'                        => 'attendances#create'
+    delete '/attendances/:id'                      => 'attendances#destroy'
+
   end  
 
   get '/app'                                   => 'static_pages#App' # App page [server side]
