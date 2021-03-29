@@ -12,7 +12,7 @@ class App extends React.Component {
 
   changeHandler = (event) => {
     const { name, value } = event.target;
-    this.setState({ name: value })
+    this.setState({ [name]: value })
   }
 
   submitHandler = (event) => {
