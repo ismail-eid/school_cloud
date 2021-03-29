@@ -140,7 +140,7 @@ class SpecialClass extends React.Component {
                   />
                   <input
                     className="form-control mb-3"
-                    type="phone"
+                    type="text"
                     name="phone"
                     placeholder="Phone"
                     value={phone}

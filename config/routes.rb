@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get '/students'                            => 'students#index'
     get '/students/:id'                        => 'students#show'
     put '/students'                            => 'students#update'
+    get '/student'                             => 'students#find'
 
     # EXAMS
     get '/exams'                               => 'exams#index'
@@ -37,10 +38,17 @@ Rails.application.routes.draw do
     # ATTENDANCE
     get '/attendances'                         => 'attendances#index'
     post '/attendances'                        => 'attendances#create'
-    delete '/attendances/:id'                      => 'attendances#destroy'
+
+    #  PARENTS
+    get '/parents'                             => 'parents#show'    
+    post '/parents'                            => 'parents#create'
+
+    # PARENT USERS
+    post '/parentusers'                        => 'parentusers#create'
 
   end  
-
+  
+  # APP
   get '/app'                                   => 'static_pages#App' # App page [server side]
   get '/app/classes'                           => 'static_pages#App' # classes page [client side]
   get '/app/classes/:id'                       => 'static_pages#App'
@@ -48,4 +56,9 @@ Rails.application.routes.draw do
   get '/app/exams'                             => 'static_pages#App'
   get '/app/attendances'                       => 'static_pages#App'
   get '/app/payments'                          => 'static_pages#App'
+  get '/app/student'                           => 'static_pages#App'
+  get '/app/parents'                           => 'static_pages#App'
+
+  # PARENT
+  get '/parents'                               => 'static_pages#Parent'
 end

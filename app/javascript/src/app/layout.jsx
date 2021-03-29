@@ -13,7 +13,7 @@ class Layout extends React.Component {
     school_name: '',
     user_full_name: '',
     pages: {
-      home: true,
+      home: false,
       classes: false,
       exams: false,
       fee: false,
@@ -36,6 +36,24 @@ class Layout extends React.Component {
     }).then(() => {
       this.getSchool()
     })
+    
+    // get current pages and mark as active
+    const current_location = window.location.toLocaleString()
+    if (/classes/.test(current_location)) {
+      this.setState({ pages: { classes: true }})
+    } else if (/exams/.test(current_location)) {
+      this.setState({ pages: { exams: true }})
+    } else if (/payments/.test(current_location)) {
+      this.setState({ pages: { fee: true }})
+    } else if (/attendances/.test(current_location)) {
+      this.setState({ pages: { attendance: true }})
+    } else if (/student/.test(current_location)) {
+      this.setState({ pages: { student: true }})
+    } else if (/parents/.test(current_location)) {
+      this.setState({ pages: { parents: true }})
+    } else {
+      this.setState({ pages: { home: true }})
+    }
   }
 
   getSchool = () => {
@@ -106,7 +124,7 @@ class Layout extends React.Component {
                 <Link onClick={() => this.makeActive('home')} className={`nav-link ${this.state.pages.home? 'active': ''}`} to="/app"><i className="fas fa-home d-inline-block mr-3"></i> Home</Link>
               </li>
               <li>
-                <Link onClick={() => this.makeActive('classes')} className={`nav-link ${this.state.pages.classes? 'active': ''}`} to="/app/classes"><i className="fas fa-user-friends d-inline-block mr-3"></i> Classes</Link>
+                <Link onClick={() => this.makeActive('classes')} className={`nav-link ${this.state.pages.classes? 'active': ''}`} to="/app/classes"><i className="fas fa-door-open d-inline-block mr-3"></i> Classes</Link>
               </li>
               <li>
                 <Link onClick={() => this.makeActive('exams')} className={`nav-link ${this.state.pages.exams && 'active'}`} to="/app/exams"><i className="fas fa-envelope-open-text d-inline-block mr-3"></i> Exams</Link>
@@ -121,7 +139,7 @@ class Layout extends React.Component {
                 <Link onClick={() => this.makeActive('student')} className={`nav-link ${this.state.pages.student && 'active'}`} to="/app/student"><i className="fas fa-user-edit d-inline-block mr-3"></i> Student</Link>
               </li>
               <li>
-                <a onClick={() => this.makeActive('parents')} className={`nav-link ${this.state.pages.parents && 'active'}`} href="#"><i className="fas fa-users d-inline-block mr-3"></i> Parents</a>
+                <Link onClick={() => this.makeActive('parents')} className={`nav-link ${this.state.pages.parents && 'active'}`} to="/app/parents"><i className="fas fa-users d-inline-block mr-3"></i> Parents</Link>
               </li>
             </ul>
           </div>

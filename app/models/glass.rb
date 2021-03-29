@@ -6,5 +6,6 @@ class Glass < ApplicationRecord
   validates :school, presence: true
 
   validates :class_name, presence: true, length: {maximum: 20}
+  puts @glass
 
 end

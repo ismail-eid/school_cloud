@@ -170,7 +170,7 @@ class AttendanceWidget extends React.Component {
                   <tr key={attendance.id}>
                     <th>{attendance.student_id}</th>
                     <td>{attendance.full_name}</td>
-                    <td>{attendance.attended? (<i className="fas fa-check d-inline-block" style={{color: 'green'}}></i>): (<i className="fas fa-times" style={{color: 'red'}}></i>)}</td>
+                    <td>{attendance.absent? (<i className="fas fa-times" style={{color: 'red'}}></i>): (<i className="fas fa-check d-inline-block" style={{color: 'green'}}></i>)}</td>
                   </tr>
                 ))}
               </tbody>

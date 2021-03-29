@@ -18,4 +18,9 @@ class StaticPagesController < ApplicationController
   def Home 
     render 'Home'
   end  
+
+  # PARENT PAGE
+  def parent 
+    render 'Parent'
+  end  
 end

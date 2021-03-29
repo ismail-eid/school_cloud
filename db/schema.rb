@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 2021_03_21_160638) do
     t.integer "student_id"
     t.integer "year_id"
     t.integer "month_id"
+    t.integer "day_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["day_id"], name: "index_attendances_on_day_id"
     t.index ["month_id"], name: "index_attendances_on_month_id"
     t.index ["student_id"], name: "index_attendances_on_student_id"
     t.index ["year_id"], name: "index_attendances_on_year_id"
@@ -62,9 +64,13 @@ ActiveRecord::Schema.define(version: 2021_03_21_160638) do
     t.string "student_grade"
     t.integer "student_id"
     t.integer "year_id"
+    t.integer "type_id"
+    t.integer "subject_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["student_id"], name: "index_grades_on_student_id"
+    t.index ["subject_id"], name: "index_grades_on_subject_id"
+    t.index ["type_id"], name: "index_grades_on_type_id"
     t.index ["year_id"], name: "index_grades_on_year_id"
   end
 
@@ -164,11 +170,14 @@ ActiveRecord::Schema.define(version: 2021_03_21_160638) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "attendances", "days"
   add_foreign_key "attendances", "months"
   add_foreign_key "attendances", "students"
   add_foreign_key "attendances", "years"
   add_foreign_key "glasses", "schools"
   add_foreign_key "grades", "students"
+  add_foreign_key "grades", "subjects"
+  add_foreign_key "grades", "types"
   add_foreign_key "grades", "years"
   add_foreign_key "paids", "months"
   add_foreign_key "paids", "students"

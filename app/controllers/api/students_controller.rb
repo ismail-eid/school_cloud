@@ -73,6 +73,31 @@ module Api
       end  
     end  
 
+    def find
+      token = cookies.signed[:dugsi_session_token]
+      session = Session.find_by(token: token)
+      user = session.user
+      school_id = user.schools.first.id
+
+      if params[:full_name]
+        @student = Student.joins(:glass).where(:glasses => {:school_id => school_id}).find_by(full_name: params[:full_name])
+        if @student 
+          render 'api/students/find'
+        else
+          render json: { success: false }  
+        end  
+      elsif  params[:phone]
+        @student = Student.joins(:glass).where(:glasses => {:school_id => school_id}).find_by(phone: params[:phone])
+        if @student 
+          render 'api/students/find'
+        else
+          render json: { success: false }, status: :not_found  
+        end  
+      else
+        render json: { success: false }, status: :not_found
+      end  
+    end  
+
     def student_params
       params.require(:student).permit(:student_id, :full_name, :gender, :phone, :address, :birthday, :parent_id, :glass_id, :photo)
     end  

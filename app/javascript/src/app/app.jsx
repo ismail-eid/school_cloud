@@ -8,6 +8,8 @@ import SpecialStudent from './specialStudent';
 import ExamWidget from './exams';
 import AttendanceWidget from './attendance';
 import FeeWidget from './fee';
+import StudentWidget from './student';
+import ParentsWidget from './parents';
 
 
 const App = (props) => {
@@ -22,6 +24,8 @@ const App = (props) => {
           <Route path="/app/exams" exact component={ExamWidget} />
           <Route path="/app/attendances" exact component={AttendanceWidget} />
           <Route path="/app/payments" exact component={FeeWidget} />
+          <Route path="/app/student" exact component={StudentWidget} />
+          <Route path="/app/parents" exact component={ParentsWidget} />
         </Switch>
       </Layout>
     </Router>

@@ -101,6 +101,9 @@ class CreateNewAllTables < ActiveRecord::Migration[6.0]
 
       t.belongs_to :student, index: true, foreign_key: true
       t.belongs_to :year, index: true, foreign_key: true
+      t.belongs_to :type, index: true, foreign_key: true
+      t.belongs_to :subject, index: true, foreign_key: true
+
 
       t.timestamps
     end
@@ -109,6 +112,8 @@ class CreateNewAllTables < ActiveRecord::Migration[6.0]
       t.belongs_to :student, index: true, foreign_key: true
       t.belongs_to :year, index: true, foreign_key: true
       t.belongs_to :month, index: true, foreign_key: true
+      t.belongs_to :day, index: true, foreign_key: true
+
 
       t.timestamps
     end

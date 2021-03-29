@@ -23,21 +23,6 @@ module Api
       end  
     end  
 
-    def destroy
-      token = cookies.signed[:dugsi_session_token]
-      session = Session.find_by(token: token)
-
-      if session
-        attendance = Attendance.find(params[:id])
-
-        if attendance && attendance.destroy 
-          render json: { success: true } 
-        end  
-      else
-        render json: { success: false }
-      end  
-    end  
-
     private
       def attendance_params
         params.require(:student).permit(:student_id, :year_id, :month_id, :day_id)
