@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 
     # PARENT USERS
     post '/parentusers'                        => 'parentusers#create'
+    get '/parentusers'                         => 'parentusers#authenticated'
 
   end  
   

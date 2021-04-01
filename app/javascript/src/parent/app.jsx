@@ -23,21 +23,22 @@ class App extends React.Component {
   
 
   render () {
+    const { username, password, login, error } = this.state;
     if (login) {
       return (
         <div className="container">
           <div className="row justify-content-center">
           <div className="col-12 text-center">
-          <h2>Login In</h2>
+          <h2>Parent Login</h2>
           <p>{error && <span>{error}</span> }</p>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-6 text-center">
           <form onSubmit={this.submitHandler}>
             <input
               className="form-control mb-3"
-              name="email"
-              type="email"
-              value={email}
+              name="username"
+              type="text"
+              value={username}
               placeholder="Email"
               onChange={this.changeHandler}
               required
