@@ -13,6 +13,20 @@ module Api
       end  
     end  
 
+    def show 
+      parent = Parent.find(params[:parent_id])
+
+      if parent
+        @students = parent.students.order(full_name: :ASC)
+        @params = params 
+        render 'api/exams/index'
+      else
+        render json: {
+          success: false
+        }, status: :not_found
+      end  
+    end  
+
     def create
       @exam = Grade.new(exam_params)
       if @exam.save 

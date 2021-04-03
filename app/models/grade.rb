@@ -14,7 +14,7 @@ class Grade < ApplicationRecord
   after_validation :exam_unique
 
   def exam_unique
-    @exam = Grade.where(student_id: self.student_id, year_id: self.year_id, type_id: self.type_id).first
+    @exam = Grade.where(student_id: self.student_id, year_id: self.year_id, type_id: self.type_id, subject_id: self.subject_id).first
 
     if @exam
       @exam.destroy

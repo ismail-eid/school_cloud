@@ -34,10 +34,12 @@ Rails.application.routes.draw do
     # EXAMS
     get '/exams'                               => 'exams#index'
     post '/exams'                              => 'exams#create'
+    get '/exams/:parent_id'                    => 'exams#show'
 
     # ATTENDANCE
     get '/attendances'                         => 'attendances#index'
     post '/attendances'                        => 'attendances#create'
+    get '/attendances/:parent_id'              => 'attendances#show'
 
     #  PARENTS
     get '/parents'                             => 'parents#show'    

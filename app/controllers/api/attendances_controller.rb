@@ -12,6 +12,20 @@ module Api
         }, status: :not_found  
       end  
     end 
+
+    def show 
+      parent = Parent.find(params[:parent_id])
+
+      if parent
+        @students = parent.students.order(full_name: :ASC)
+        @params = params 
+        render 'api/attendances/index'
+      else
+        render json: {
+          success: false
+        }, status: :not_found
+      end  
+    end  
     
     def create 
       @attendance = Attendance.new(attendance_params)

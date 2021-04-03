@@ -1,7 +1,4 @@
-json.students do
-  json.array! @parent_user.parent.students do |student|
-    json.id  student.id
-    json.student_id student.student_id
-    json.full_name student.full_name
-  end  
-end  
+json.success true
+json.username @parent_user.username
+json.parent_id @parent_user.parent.id
+json.school_name @parent_user.parent.school.name
