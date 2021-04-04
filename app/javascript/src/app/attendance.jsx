@@ -29,6 +29,12 @@ class AttendanceWidget extends React.Component {
       const {glass, year, month, day} =  this.state;
       this.getAttendance(glass, year, month, day)
     })
+
+      // update the date to current date
+      const date = new Date()
+      const month = String(date.getMonth() + 1);
+      const day = String(date.getDate())
+      this.setState({ month, day })
   }
 
   toggleAddAttendance = () => {
@@ -92,7 +98,10 @@ class AttendanceWidget extends React.Component {
         }
       })
     })).then(handleErrors).then(data => {
-      console.log(data);
+      if (data.success) {
+        const {glass, year, month, day} =  this.state;
+        this.getAttendance(glass, year, month, day)
+      }
     })
   }
 
@@ -179,8 +188,8 @@ class AttendanceWidget extends React.Component {
         </div>
         {add_attendance && (
           <div className="box-popup">
-            <form className="form-group form-popup" style={{maxWidth: '500px', maxHeight: '450px'}}>
-              <h3 className="font-weight-bold text-center my-3">Enter new Attendance</h3>
+            <form className="form-group form-popup" style={{maxWidth: '500px', maxHeight: '400px'}}>
+              <h3 className="font-weight-bold text-center my-3">Enter new Absence</h3>
               <select className="form-control mb-3" value={student} name="student" value={student} onChange={this.addChangeHandler}>
                 {students_attendances.map(attendance => (
                   <option key={attendance.id} value={`${attendance.id}`}>{attendance.full_name}</option>

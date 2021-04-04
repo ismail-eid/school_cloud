@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_160638) do
+ActiveRecord::Schema.define(version: 2021_04_04_074426) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(version: 2021_03_21_160638) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "fees", force: :cascade do |t|
+    t.string "amount"
+    t.integer "school_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["school_id"], name: "index_fees_on_school_id"
+  end
+
   create_table "glasses", force: :cascade do |t|
     t.string "class_name"
     t.integer "school_id"
@@ -81,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_160638) do
   end
 
   create_table "paids", force: :cascade do |t|
-    t.decimal "amount", precision: 10, scale: 2
+    t.string "amount"
     t.integer "student_id"
     t.integer "year_id"
     t.integer "month_id"
@@ -139,6 +147,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_160638) do
     t.integer "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "scholarship", default: false
     t.index ["glass_id"], name: "index_students_on_glass_id"
     t.index ["parent_id"], name: "index_students_on_parent_id"
   end
@@ -174,6 +183,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_160638) do
   add_foreign_key "attendances", "months"
   add_foreign_key "attendances", "students"
   add_foreign_key "attendances", "years"
+  add_foreign_key "fees", "schools"
   add_foreign_key "glasses", "schools"
   add_foreign_key "grades", "students"
   add_foreign_key "grades", "subjects"

@@ -22,6 +22,14 @@ class App extends React.Component {
     loading_server: false
   }
 
+  componentDidMount () {
+    // update the date to current date
+    const date = new Date()
+    const month = String(date.getMonth() + 1);
+    const day = String(date.getDate())
+    this.setState({ month, day })
+  }
+
   changeHandler = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value })
@@ -186,7 +194,7 @@ class App extends React.Component {
         </div>
         <div className="row m-0">
           <div className="col-12 p-0">
-            <table className="table table-bordered" style={{fontSize: "13px"}}>
+            <table className="table table-bordered table-responsive-lg" style={{fontSize: "13px"}}>
             <thead>
                   <tr>
                     <th>id</th>
@@ -268,7 +276,7 @@ class App extends React.Component {
               <tbody>
                 {students_attendances && students_attendances.map(attendance => (
                   <tr key={attendance.id}>
-                    <th>{attendance.student_id}</th>
+                    <th>#{attendance.student_id}</th>
                     <td>{attendance.full_name}</td>
                     <td>{attendance.absent? (<i className="fas fa-times" style={{color: 'red'}}></i>): (<i className="fas fa-check d-inline-block" style={{color: 'green'}}></i>)}</td>
                   </tr>
@@ -279,7 +287,7 @@ class App extends React.Component {
         </div>
         <footer className="row p-3 bg-dark text-light">
           <div>
-            <p className="mr-3 mb-0">Dugsi Cloud <small>© Copyright 2021. All Rights Reserved.</small> - <small>Developed by <a href="">Ismail Eid</a></small> </p>
+            <p className="mr-3 mb-0">Dugsi Cloud <small>© Copyright 2021. All Rights Reserved.</small> - <small>Developed by <a href="https://www.facebook.com/ismaileidjama" target="_blank">Ismail Eid</a></small> </p>
           </div>
        </footer>
       </div>

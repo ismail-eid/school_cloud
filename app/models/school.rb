@@ -2,6 +2,7 @@ class School < ApplicationRecord
   belongs_to :user
   has_many :glasses
   has_many :parents
+  has_many :fees
 
   validates :name, presence: true, length: {minimum: 3, maximum: 64}
   validates :tell, presence: true, length: {maximum: 20}

@@ -11,7 +11,16 @@ years = Year.create([
   {school_year: '2018'},
   {school_year: '2019'},
   {school_year: '2020'},
-  {school_year: '2021'}
+  {school_year: '2021'},
+  {school_year: '2022'},
+  {school_year: '2023'},
+  {school_year: '2024'},
+  {school_year: '2025'},
+  {school_year: '2026'},
+  {school_year: '2027'},
+  {school_year: '2028'},
+  {school_year: '2029'},
+  {school_year: '2030'}
 ])
 
 months = Month.create([
